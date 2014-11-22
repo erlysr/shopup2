@@ -6,7 +6,7 @@ from .forms import UserCreationEmailForm, EmailAuthenticationForm, LoginForm, Pr
 
 
 # Create your views here.
-# No esta en funcionamiento hay que arreglarlo
+# No esta en funcionamiento hay que arreglarlo 2
 def register_profile(request):
 	context = RequestContext(request)
 	registered = False
