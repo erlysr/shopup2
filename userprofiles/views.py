@@ -2,7 +2,7 @@ from django.views.generic import TemplateView, FormView, RedirectView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render
-from .forms import UserCreationEmailForm, EmailAuthenticationForm, LoginForm, ProfileSignUpForm
+from userprofiles.forms import UserCreationEmailForm, EmailAuthenticationForm, LoginForm, ProfileSignUpForm
 
 
 # Create your views here.
@@ -81,9 +81,6 @@ class ProfileView(TemplateView):
 
 			context.update(data)
 
-			if self.get_userprofile() == None:
-				self.template_name = 'ProfileSignUp.html'
-
 			return context
 
 	def get_userprofile(self):
@@ -135,11 +132,6 @@ class LoginView(FormView):
 				'lastname': lastname,
 				'userprofile': self.get_userprofile()
 				}
-				if self.get_userprofile() == None:
-				#	self.template_name = 'profilesignup.html'
-					self.success_url = '/profilesignup/'
-				
-				
 
 				context.update(data)
 
